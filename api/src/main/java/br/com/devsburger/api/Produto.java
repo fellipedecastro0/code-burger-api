@@ -3,6 +3,7 @@ package br.com.devsburger.api;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
+@Table(name = "produtos")
 @Entity
 public class Produto {
     @Id
