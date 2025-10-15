@@ -1,6 +1,8 @@
-package br.com.devsburger.api;
+package entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 @Table(name = "pedidos")
@@ -19,6 +21,9 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
 
+    // Um Pedido pode ter UMA LISTA de Muitos Itens
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
     // --- Construtor, Getters e Setters ---
 
     public Pedido() {
@@ -55,5 +60,13 @@ public class Pedido {
 
     public void setStatus(StatusPedido status) {
         this.status = status;
+    }
+
+    public List<ItemPedido> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ItemPedido> itens) {
+        this.itens = itens;
     }
 }

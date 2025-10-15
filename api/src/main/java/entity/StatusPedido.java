@@ -1,4 +1,4 @@
-package br.com.devsburger.api;
+package entity;
 
 public enum StatusPedido {
     EM_PREPARO,
