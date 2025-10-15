@@ -1,7 +1,6 @@
-package controller;
-
-import entity.Produto;
-import repository.ProdutoRepository;
+package br.com.devsburger.api.controller;
+import br.com.devsburger.api.entity.Produto;
+import br.com.devsburger.api.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

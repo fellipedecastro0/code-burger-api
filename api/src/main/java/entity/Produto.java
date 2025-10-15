@@ -1,4 +1,4 @@
-package entity;
+package br.com.devsburger.api.entity;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

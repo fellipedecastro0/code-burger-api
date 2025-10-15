@@ -1,8 +1,6 @@
 package br.com.devsburger.api.controller;
-
 import br.com.devsburger.api.dto.PedidoRequestDTO;
 import br.com.devsburger.api.entity.Pedido;
-import br.com.devsburger.api.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
