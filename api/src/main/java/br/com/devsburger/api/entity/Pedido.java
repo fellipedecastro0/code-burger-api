@@ -1,12 +1,15 @@
 package br.com.devsburger.api.entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-import br.com.devsburger.api.entity.StatusPedido;
-import br.com.devsburger.api.entity.ItemPedido;
+
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
+
+    // Importe a anotação: import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +24,7 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
