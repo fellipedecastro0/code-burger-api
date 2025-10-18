@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.devsburger</groupId>
-	<artifactId>api</artifactId>
+	<artifactId>code-burger-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>api</name>
 	<description>API para a hamburgueria DevsBurger</description>
