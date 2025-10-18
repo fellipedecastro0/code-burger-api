@@ -25,7 +25,7 @@ public class Pedido {
     private StatusPedido status;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemPedido> itens;
 
     // Construtor vazio (obrigatório pelo JPA)

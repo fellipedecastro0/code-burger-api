@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedidoService {
@@ -64,6 +65,40 @@ public class PedidoService {
 
         // Retorna o pedido completo para o controller
         return pedidoSalvo;
+
+
     } //
 
+    public List<Pedido> listarTodos() {
+        // pedimos ao repositório para buscar todos os pedidos e os retornamos.
+        return pedidoRepository.findAll();
+    }
+
+    public Optional<Pedido> buscarPorId(Long id) {
+        return  pedidoRepository.findById(id);
+    }
+
+    @Transactional
+    public Optional<Pedido> atualizarStatus(Long id, StatusPedido novoStatus) {
+        // Usamos o .map() que já conhecemos. Se encontrar o pedido...
+        return pedidoRepository.findById(id)
+                .map(pedidoEncontrado -> {
+                    // ...apenas atualiza o campo status...
+                    pedidoEncontrado.setStatus(novoStatus);
+                    // ...e retorna o pedido. O @Transactional garante que a mudança será salva no banco.
+                    return pedidoEncontrado;
+                });
+    }
+
+    public boolean deletarPedido(Long id) {
+        // Primeiro, checamos se um pedido com este ID existe.
+        if (pedidoRepository.existsById(id)) {
+            // Se existe, mandamos apagar.
+            pedidoRepository.deleteById(id);
+            // Retornamos 'true' para sinalizar sucesso.
+            return true;
+        }
+        // Se não existe, retornamos 'false' para sinalizar que não encontramos o pedido.
+        return false;
+    }
 }
