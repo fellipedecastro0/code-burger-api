@@ -2,8 +2,7 @@ package br.com.devsburger.api.entity;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
-import br.com.devsburger.api.entity.StatusPedido;
-import br.com.devsburger.api.entity.ItemPedido;
+
 @Entity
 @Table(name = "pedidos")
 public class Pedido {

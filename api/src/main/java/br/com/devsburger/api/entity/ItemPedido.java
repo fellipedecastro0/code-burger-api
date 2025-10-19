@@ -1,8 +1,7 @@
 package br.com.devsburger.api.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
-import  br.com.devsburger.api.entity.Produto;
-import br.com.devsburger.api.entity.Pedido;
+
 @Entity
 @Table(name = "itens_do_pedido")
 public class ItemPedido {
