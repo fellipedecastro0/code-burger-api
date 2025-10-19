@@ -1,4 +1,5 @@
 package br.com.devsburger.api.entity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
@@ -17,6 +18,7 @@ public class ItemPedido {
     // --- RELACIONAMENTOS ---
 
     // Muitos Itens pertencem a UM Pedido
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "pedido_id")
     private Pedido pedido;

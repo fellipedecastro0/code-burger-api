@@ -1,3 +1,4 @@
+
 package br.com.devsburger.api.controller;
 import br.com.devsburger.api.entity.Produto;
 import br.com.devsburger.api.repository.ProdutoRepository;
@@ -37,8 +38,8 @@ public class ProdutoController {
     // C CRIAR
     @PostMapping //é o cliente dizendo "Quero ADICIONAR este novo item ao cardápio".
     public ResponseEntity<Produto> criarProduto(@RequestBody Produto produto) {
-       Produto produtoSalvo = repository.save(produto);
-       return ResponseEntity.status(HttpStatus.CREATED).body(produtoSalvo); // Prepare uma resposta profissional ('201 Criado)
+        Produto produtoSalvo = repository.save(produto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(produtoSalvo); // Prepare uma resposta profissional ('201 Criado)
     }
 
     //U UPDATE

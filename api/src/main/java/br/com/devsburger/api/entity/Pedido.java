@@ -1,4 +1,5 @@
 package br.com.devsburger.api.entity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -6,6 +7,9 @@ import java.util.List;
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
+
+    // Importe a anotação: import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +24,8 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
 
-    @OneToMany(mappedBy = "pedido")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemPedido> itens;
 
     // Construtor vazio (obrigatório pelo JPA)
